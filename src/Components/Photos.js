@@ -1,17 +1,23 @@
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { fetchPhotos } from '../store/photos';
+import { loadNewPhotos } from '../store/photos';
 import PhotosContent from './PhotosContent';
+import PhotosLoadMore from './PhotosLoadMore';
 
 const Photos = () => {
   const { data } = useSelector((state) => state.photos);
   const dispatch = useDispatch();
 
   React.useEffect(() => {
-    dispatch(fetchPhotos(1));
+    dispatch(loadNewPhotos(1));
   }, [dispatch]);
 
-  return <section>{data && <PhotosContent />}</section>;
+  return (
+    <section>
+      {data && <PhotosContent />}
+      <PhotosLoadMore />
+    </section>
+  );
 };
 
 export default Photos;
