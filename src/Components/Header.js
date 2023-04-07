@@ -16,7 +16,7 @@ const Header = () => {
         onClick={() => dispatch(userLogout())}
         className={`
         ${styles.login}
-        ${user.loading ? styles.loading : ''}
+        ${loading ? styles.loading : ''}
         ${user.data ? styles.loaded : ''}`}
       ></button>
     </header>
